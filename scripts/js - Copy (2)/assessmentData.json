@@ -1,0 +1,316 @@
+{
+	"Level1": {
+		"DisplayQuestions": 5,
+		"PassingThreshold": 80,
+		"Question": [
+			{
+				"Text": "How is monthly salary processed?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "From the first of the previous month till the last day of the current month",
+						"isCorrect": 0
+					},
+					{
+						"Text": "From the first of a month till the last",
+						"isCorrect": 1
+					},
+					{
+						"Text": "From the twentieth of the previous month till the twentieth of the current month",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! Monthly salary is processed from the first of a month till the last. However, attendance is considered only till the twentieth of the current month.",
+					"Incorrect": "Sorry, you selected incorrectly! Monthly salary is processed from the first of a month till the last. However, attendance is considered only till the twentieth of the current month."
+				}
+			},
+			{
+				"Text": "What percentage of basic salary is gratuity?",
+				"Type": "MULTI_SELECT",
+				"Option": [
+					{
+						"Text": "4.81%",
+						"isCorrect": 1
+					},
+					{
+						"Text": "4%",
+						"isCorrect": 1
+					},
+					{
+						"Text": "5.2%",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! Gratuity is 4.81% of basic salary. It is a statutory contribution made by the company.",
+					"Incorrect": "Sorry, you selected incorrectly! Gratuity is 4.81% of basic salary. It is a statutory contribution made by the company."
+				}
+			},
+			{
+				"Text": "When is salary credited?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "First of every month",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Last working day of every month",
+						"isCorrect": 1
+					},
+					{
+						"Text": "Last day of every month",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! Salary is credited on the last working day of every month. However, it is processed from the first of every month till the last day of the month.",
+					"Incorrect": "Sorry, you selected incorrectly. Salary is credited on the last working day of every month. However, it is processed from the first of every month till the last day of the month."
+				}
+			},
+			{
+				"Text": "Which of the following can you call for any transport related issues, queries, or incidents?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Sahayata",
+						"isCorrect": 1
+					},
+					{
+						"Text": "Travel Safe",
+						"isCorrect": 0
+					},
+					{
+						"Text": "MoveInSync",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! You should call Sahayata for any transport related issues, queries, or incidents. You can also raise a ticket in MyHelp for this purpose.",
+					"Incorrect": "Sorry, you selected incorrectly. You should call Sahayata for any transport related issues, queries, or incidents. You can also raise a ticket in MyHelp for this purpose."
+				}
+			},
+			{
+				"Text": "Which of the following is one of the visions and operating principles of Concentrix?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "We value knowledge, openness, and transparency.",
+						"isCorrect": 0
+					},
+					{
+						"Text": "We are tenacious in our pursuit of excellence.",
+						"isCorrect": 0
+					},
+					{
+						"Text": "We will be the greatest customer engagement services company in the world, rich in diversity and talent.",
+						"isCorrect": 1
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! The vision of Concentrix is \"We will be the greatest customer engagement services company in the world, rich in diversity and talent.\" Apart from this, there are 9 culture statements and 3 operating philosophies.",
+					"Incorrect": "Sorry, you selected incorrectly. The vision of Concentrix is \"We will be the greatest customer engagement services company in the world, rich in diversity and talent.\" Apart from this, there are 9 culture statements and 3 operating philosophies."
+				}
+			},
+			{
+				"Text": "Which culture statement talks about valuing teamwork?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "We are fanatical about our clients and staff.",
+						"isCorrect": 0
+					},
+					{
+						"Text": "We all contribute and are one Concentrix.",
+						"isCorrect": 1
+					},
+					{
+						"Text": "We are tenacious in our pursuit of excellence.",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! The statement \"We all contribute and are one Concentrix\" embodies teamwork as one of its underlying principles. Through valuing teamwork, we strive to find new ways of benefiting our staff, clients, and shareholders.",
+					"Incorrect": "Sorry, you selected incorrectly. The statement \"We all contribute and are one Concentrix\" embodies teamwork as one of its underlying principles. Through valuing teamwork, we strive to find new ways of benefiting our staff, clients, and shareholders."
+				}
+			},
+			{
+				"Text": "Where can you view all HR policies?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Workday",
+						"isCorrect": 0
+					},
+					{
+						"Text": "EBucks",
+						"isCorrect": 1
+					},
+					{
+						"Text": "OneTouch",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! All HR policies can be viewed on EBucks. It is a tool to view pay slips, apply for self-transport, and biometric consent. It also stores Form 16, which is required for income tax filing.",
+					"Incorrect": "Sorry, you selected incorrectly. All HR policies can be viewed on EBucks. It is a tool to view pay slips, apply for self-transport, and biometric consent. It also stores Form 16, which is required for income tax filing."
+				}
+			},
+			{
+				"Text": "How many operating principles does Concentrix have?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "One",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Two",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Three",
+						"isCorrect": 1
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! Concentrix has three operating principles. They include the following: Visibility, Value, and Velocity.",
+					"Incorrect": "Sorry, you selected incorrectly. Concentrix has three operating principles. They include the following: Visibility, Value, and Velocity."
+				}
+			},
+			{
+				"Text": "Which of the following lets you quickly adapt to, and even anticipate, changes in the marketplace?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Velocity",
+						"isCorrect": 1
+					},
+					{
+						"Text": "Visibility",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Value",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! The operating principle of Velocity lets you quickly adapt to, and even anticipate, changes in the marketplace.",
+					"Incorrect": "Sorry, you selected incorrectly. The operating principle of Velocity lets you quickly adapt to, and even anticipate, changes in the marketplace."
+				}
+			},
+			{
+				"Text": "What is the full form of POSH?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Prevention of Sub-Rosa Harassment",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Prevention of Stressful Harassment",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Prevention of Sexual Harassment",
+						"isCorrect": 1
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! POSH stands for Prevention of Sexual Harassment. The POSH committee has a zero tolerance policy towards acts of sexual advances, jokes, actions, and comments, as well as racial and religious slurs at the workplace that create, encourage, or permit an offensive, intimidating, or inappropriate work environment.",
+					"Incorrect": "Sorry, you selected incorrectly. POSH stands for Prevention of Sexual Harassment. The POSH committee has a zero tolerance policy towards acts of sexual advances, jokes, actions, and comments, as well as racial and religious slurs at the workplace that create, encourage, or permit an offensive, intimidating, or inappropriate work environment."
+				}
+			},
+			{
+				"Text": "Which of the following leave types can be accumulated and carried forward to the next year?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Casual leave",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Earned leave",
+						"isCorrect": 1
+					},
+					{
+						"Text": "Sick leave",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! Earned leaves can be accumulated and carried forward to the next year. Staff can utilize earned leaves when they plan for leaves in advance. They will be credited in advance on the first of every month.",
+					"Incorrect": "Sorry, you selected incorrectly. Earned leaves can be accumulated and carried forward to the next year. Staff can utilize earned leaves when they plan for leaves in advance. They will be credited in advance on the first of every month."
+				}
+			},
+			{
+				"Text": "What is the minimum hours from your login time you need to work before you can take a half-day leave?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "2 hours",
+						"isCorrect": 0
+					},
+					{
+						"Text": "5 hours",
+						"isCorrect": 0
+					},
+					{
+						"Text": "4.5 hours",
+						"isCorrect": 1
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! You need to work for minimum 4.5 hours from your login time before you can take a half-day leave. This leave is governed by State Labor Laws. Each location has different entitlement of leaves.",
+					"Incorrect": "Sorry, you selected incorrectly. You need to work for minimum 4.5 hours from your login time before you can take a half-day leave. This leave is governed by State Labor Laws. Each location has different entitlement of leaves."
+				}
+			},
+			{
+				"Text": "What is the upper limit of an emergency loan that you can avail?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "Rs. 1 lakh",
+						"isCorrect": 1
+					},
+					{
+						"Text": "Rs. 3 lakhs",
+						"isCorrect": 0
+					},
+					{
+						"Text": "Rs. 2 lakhs",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! You can avail an emergency loan of up to Rs. 1 lakh. Employees can avail it in the following circumstances:\r\n \u2022  Loss of property or damage caused by natural calamities at the place where the employee is residing\r\n \u2022  Medical emergencies for self, spouse, children, and parents\r\n \u2022  Death of any immediate family members (spouse, children, and parents only)",
+					"Incorrect": "Sorry, you selected incorrectly. You can avail an emergency loan of up to Rs. 1 lakh. Employees can avail it in the following circumstances:\r\n \u2022  Loss of property or damage caused by natural calamities at the place where the employee is residing\r\n \u2022  Medical emergencies for self, spouse, children, and parents\r\n \u2022  Death of any immediate family members (spouse, children, and parents only)"
+				}
+			},
+			{
+				"Text": "What is the interest rate of the loan amount that you can avail?",
+				"Type": "SINGLE_SELECT",
+				"Option": [
+					{
+						"Text": "There is no interest rate.",
+						"isCorrect": 1
+					},
+					{
+						"Text": "2%",
+						"isCorrect": 0
+					},
+					{
+						"Text": "1.8%",
+						"isCorrect": 0
+					}
+				],
+				"Feedback": {
+					"Correct": "You got it! The loan is interest free. Employees can avail it in the following circumstances:\r\n \u2022  Loss of property or damage caused by natural calamities at the place where the employee is residing\r\n \u2022  Medical emergencies for self, spouse, children, and parents\r\n \u2022  Death of any immediate family members (spouse, children, and parents only)",
+					"Incorrect": "Sorry, you selected incorrectly. The loan is interest free. Employees can avail it in the following circumstances:\r\n \u2022  Loss of property or damage caused by natural calamities at the place where the employee is residing\r\n \u2022  Medical emergencies for self, spouse, children, and parents\r\n \u2022  Death of any immediate family members (spouse, children, and parents only)"
+				}
+			}
+		]
+	}	
+}
