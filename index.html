@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Arcade - Locked</title>
+
+    <!--Scripts-->
+    <script src="scripts/babylon/cannon.js"></script>
+    <script src="scripts/babylon//ammo.js"></script>
+    <script src="scripts/babylon//babylon.max.js"></script>
+    <script src="scripts/babylon//babylonjs.loaders.js"></script>
+    <script src="scripts/babylon//babylon.gui.min.js"></script> 
+    
+    <!--Styles -->
+    <link href="css/gameStyles.css" rel="stylesheet" media="all" type="text/css" />    
+</head>
+<body>
+
+    <div class="container" id="container">
+        <div class="quizPage" id="quizPage">
+            <h2>Answer the following Question</h2>
+            <div class="break"></div> <!-- break -->
+            <div class="questionSection" id="questionDisplay">
+                question
+            </div>
+            <div class="optionSection" id="optionsDisplay">
+                options
+            </div>
+            <div class="break"></div> <!-- break -->
+            <div class="buttonSection">
+                <button id="sumbitBtn">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="renderCanvas" tabindex="-1"></canvas> 
+
+ 
+    <script src="scripts/babylon/jquery.js"></script>
+    <script src="scripts/js/quiz.js"></script>     
+    <script src="scripts/js/main.js"></script>
+    <script src="scripts/js/hero.js"></script>
+    <script src="scripts/js/library_model.js"></script>
+    <script src="scripts/js/ground.js"></script>
+    <script src="scripts/js/boxes.js"></script>
+
+</body>
+</html>
