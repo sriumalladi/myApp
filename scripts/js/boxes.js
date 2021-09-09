@@ -6,6 +6,11 @@ var boxCollider;
 var boxAnimationPairs = {};
 var keyRotate;
 var key;
+var selectedBox;
+
+var positionX;
+var positionY;
+var positionZ;
 
 var boxPlaces = [];
 boxPlaces.push([1, Math.PI / 2.2, -40, 57 ]);
@@ -141,10 +146,6 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
 
     box2.dispose();
     box2AnimGroup.dispose();
-
-
-
-    var a;
     var lockedBox1 = scene.getMeshByName('secondBox1.Box');
     var lockedBox4 = scene.getMeshByName('secondBox4.Box');
     var lockedBox7 = scene.getMeshByName('secondBox7.Box');
@@ -158,23 +159,25 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
     heroCollider.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:keyBox1,
-    }, function () {
-        a = lockedBox1;
-        glowParticles.stop();       
-        var topParent = a.parent;
-        if (topParent.parent) {
-            topParent = topParent.parent;
-        }
-        var animationToPlay = boxAnimationPairs[topParent.name];
-        for(var i = 0; i < scene.animationGroups.length; i++){    
-            if (scene.animationGroups[i].name === animationToPlay) {
-                scene.animationGroups[i].play();
-               
 
-                showQuestions();
-                          
-            }
+    }, function () {
+        selectedBox = lockedBox1;
+        positionX = 27;
+        positionY = 0;
+        positionZ = 26;
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("quizPage").classList.add("fadeIn");
+        // Quiz Page
+
+        level1.innerHTML = '';
+        level1Opt.innerHTML = '';
+
+        if(questionCount < displayQuestions){
+            questionCount++;
         }
+
+        updateQuestions(questionCount); 
+        return selectedBox, positionX, positionY, positionZ;
        
 
     }));
@@ -183,67 +186,64 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:keyBox4,
     }, function () {    
-        glowParticles.stop();   
-        a = lockedBox4;       
-        var topParent = a.parent;
-        if (topParent.parent) {
-            topParent = topParent.parent;
+        selectedBox = lockedBox4;
+        positionX = 8;
+        positionY = 0;
+        positionZ = -2;
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("quizPage").classList.add("fadeIn");
+        // Quiz Page
+
+        level1.innerHTML = '';
+        level1Opt.innerHTML = '';
+
+        if(questionCount < displayQuestions){
+            questionCount++;
         }
-        var animationToPlay = boxAnimationPairs[topParent.name];
-        for(var i = 0; i < scene.animationGroups.length; i++){    
-            if (scene.animationGroups[i].name === animationToPlay) {
-                scene.animationGroups[i].play();
-                glowEffect.rotation.y = 0;
-                glowEffect.position.x = 8;
-                glowEffect.position.z = -2;
-                glowParticles.start(500);
-                setTimeout(function(){key.position.x = 8; key.position.z = -2; }, 2000);
-            }
-        }
+
+        updateQuestions(questionCount); 
+        return selectedBox, positionX, positionY, positionZ;
+        
     }));
     heroCollider.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:keyBox7,
     }, function () {
-        glowParticles.stop();       
-        a = lockedBox7;       
-        var topParent = a.parent;
-        if (topParent.parent) {
-            topParent = topParent.parent;
+        selectedBox = lockedBox7;
+        positionX = -22;
+        positionY = 1.6;
+        positionZ = -17;
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("quizPage").classList.add("fadeIn");
+        // Quiz Page
+
+        level1.innerHTML = '';
+        level1Opt.innerHTML = '';
+
+        if(questionCount < displayQuestions){
+            questionCount++;
         }
-        var animationToPlay = boxAnimationPairs[topParent.name];
-        for(var i = 0; i < scene.animationGroups.length; i++){    
-            if (scene.animationGroups[i].name === animationToPlay) {
-                scene.animationGroups[i].play();
-                glowEffect.rotation.y = 1.6;
-                glowEffect.position.x = -22;
-                glowEffect.position.z = -17;
-                glowParticles.start(500); 
-                setTimeout(function(){key.position.x = -22; key.position.z = -17; }, 2000);               
-            }
-        }
+
+        updateQuestions(questionCount); 
+        return selectedBox, positionX, positionY, positionZ;
     }));
     heroCollider.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:keyBox10,
     }, function () {
-        glowParticles.stop();       
-        a = lockedBox10;       
-        var topParent = a.parent;
-        if (topParent.parent) {
-            topParent = topParent.parent;
-        }
-        var animationToPlay = boxAnimationPairs[topParent.name];
-        for(var i = 0; i < scene.animationGroups.length; i++){    
-            if (scene.animationGroups[i].name === animationToPlay) {
-                scene.animationGroups[i].play();
-                glowEffect.rotation.y = 1.6;
-                glowEffect.position.x = -19;
-                glowEffect.position.z = 77;
-                glowParticles.start(500);
-                setTimeout(function(){key.position.x = -19; key.position.z = 77; }, 2000);
-            }
-        }
+        selectedBox = lockedBox10;
+        positionX = -19;
+        positionY = 1.6;
+        positionZ = 77;
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("quizPage").classList.add("fadeIn");
+        // Quiz Page
+
+        level1.innerHTML = '';
+        level1Opt.innerHTML = '';       
+
+        showQuestions(); 
+        return selectedBox, positionX, positionY, positionZ;
 
        
     }));
@@ -251,23 +251,23 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:keyBox13,
     }, function () {
-        glowParticles.stop();
-        a = lockedBox13;       
-        var topParent = a.parent;
-        if (topParent.parent) {
-            topParent = topParent.parent;
+        selectedBox = lockedBox13;
+        ppositionX = 32;
+        positionY = 1.6;
+        positionZ = 77;
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("quizPage").classList.add("fadeIn");
+        // Quiz Page
+
+        level1.innerHTML = '';
+        level1Opt.innerHTML = '';
+
+        if(questionCount < displayQuestions){
+            questionCount++;
         }
-        var animationToPlay = boxAnimationPairs[topParent.name];
-        for(var i = 0; i < scene.animationGroups.length; i++){    
-            if (scene.animationGroups[i].name === animationToPlay) {
-                scene.animationGroups[i].play();
-                glowEffect.rotation.y = 1.6;
-                glowEffect.position.x = 32;
-                glowEffect.position.z = 77;
-                glowParticles.start(500);
-                setTimeout(function(){key.position.x = 32; key.position.z = 77; }, 2000);
-            }
-        }
+
+        updateQuestions(questionCount); 
+        return selectedBox, positionX, positionY, positionZ;
        
     }));
 });

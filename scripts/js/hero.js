@@ -6,15 +6,15 @@ var camCollider;
 
 camCollider = BABYLON.Mesh.CreateSphere("camMov", 10, 0.5, scene);
 heroCollider = BABYLON.Mesh.CreateBox("boxHero", 3, scene); 
-BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.gltf", scene, function (newMeshes,
+BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function (newMeshes,
     particleSystems, skeletons, animationGroups) {
     hero = newMeshes[0];
     hero.position = new BABYLON.Vector3(0, -1.5, 0);// Change z value to 0 if applying physics
     hero.rotation.y = BABYLON.Tools.ToRadians(45);
     hero.scaling.scaleInPlace(3.5);
-    var heroSpeed = 0.45;
-    var heroSpeedBackwards = 0.2;
-    var heroRotationSpeed = 0.04;
+    var heroSpeed = 0.17;
+    var heroSpeedBackwards = 0.05;
+    var heroRotationSpeed = 0.03;
     heroCollider.checkCollisions = true;
     heroCollider.isVisible = false;
     camCollider.isVisible = true;
@@ -45,7 +45,7 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.gltf", scene, functio
     // Animation Groups
 
     const idleAnim = scene.getAnimationGroupByName('01Idle');
-    const walkAnim = scene.getAnimationGroupByName('02Walk');
+    const walkAnim = scene.getAnimationGroupByName('04Walk');
     const back = scene.getAnimationGroupByName('03Back');
 
     // Key Functions

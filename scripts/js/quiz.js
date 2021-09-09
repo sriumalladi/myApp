@@ -20,9 +20,10 @@ var options;
 var optionList = '';
 var options;
 var score = 0;
-var points  = 10;
+var points = 10;
 var questionCount = -1;
-var displayQuestions = 3;
+var displayQuestions = 5;
+
 
 
 
@@ -35,80 +36,86 @@ xmlhttp.onreadystatechange = function () {
         //TotalQuestions = myObj.Level1.Question.length;
         x = myObj.Level1.Question.length; // Total Questions
 
-        options = myObj.Level1.Question[0].Option.length;       
-        optionList = myObj.Level1.Question[0].Option;
-        
+
+
+
+
 
         //y = myObj.Level2.Question.length;
         //z = myObj.Level3.Question.length;
         level1 = document.getElementById('questionDisplay');
         level1Opt = document.getElementById('optionsDisplay');
         //level2 = document.getElementById('pills-level2');
-       // level3 = document.getElementById('pills-level3');
+        // level3 = document.getElementById('pills-level3');
         level1Questions = myObj.Level1;
-       // level2Questions = myObj.Level2;
-       // level3Questions = myObj.Level3;
+        // level2Questions = myObj.Level2;
+        // level3Questions = myObj.Level3;
         level1.innerHTML = '';
         level1Opt.innerHTML = '';
-       // level2.innerHTML = '';
-      //  level3.innerHTML = '';
+        // level2.innerHTML = '';
+        //  level3.innerHTML = '';
 
-       // level1.innerHTML = "<li><a href='#' class='myList'>"+ level1Questions.Question[0].Text +"</a></li>";
+        // level1.innerHTML = "<li><a href='#' class='myList'>"+ level1Questions.Question[0].Text +"</a></li>";
 
-       /*for(var j = 0; j < options; j++ ){
-            level1Opt.innerHTML += "<div class='options'><input type='radio' name='answers' id='option"+j+"' /><label for='option"+j+"'> "+ optionList[j].Text + "</label></div>";
-            //isCorrect = myObj.Level1.Question[0].Option[j].isCorrect;
+        /*for(var j = 0; j < options; j++ ){
+             level1Opt.innerHTML += "<div class='options'><input type='radio' name='answers' id='option"+j+"' /><label for='option"+j+"'> "+ optionList[j].Text + "</label></div>";
+             //isCorrect = myObj.Level1.Question[0].Option[j].isCorrect;
 
-            //alert(optionList[j].Text);
+             //alert(optionList[j].Text);
 
-            //alert(myObj.Level1.Question[0].Option[j].isCorrect);
-        }*/
+             //alert(myObj.Level1.Question[0].Option[j].isCorrect);
+         }*/
 
-        
+
     }
 };
 
 
 
 
-var updateQuestions = function(questionCount){
+var updateQuestions = function (questionCount) {
 
-        level1.innerHTML +=  level1Questions.Question[questionCount].Text;
-
-        optionList = myObj.Level1.Question[questionCount].Option;
-
-        //console.log();
-        qType = myObj.Level1.Question[questionCount].Type;
-
-        
-       
-
-        
+    options = myObj.Level1.Question[questionCount].Option.length;
+    optionList = myObj.Level1.Question[questionCount].Option;
 
 
-        //console.log(qType +" "+ isCorrect);
+    level1.innerHTML += level1Questions.Question[questionCount].Text;
 
-        for(var j = 0; j < options; j++ ){
-            if(qType ==="SINGLE_SELECT"){
-                level1Opt.innerHTML += "<div class='options'><input type='radio' name='answers' id='option"+j+"' class='radio' /><label for='option"+j+"'> "+ optionList[j].Text + "</label></div>";
-            }else{
-                level1Opt.innerHTML += "<div class='options'><input type='checkbox' name='answers' id='option"+j+"' class='checkbox'/><label for='option"+j+"'> "+ optionList[j].Text + "</label></div>";
-            }                    
+    optionList = myObj.Level1.Question[questionCount].Option;
+
+    //console.log();
+    qType = myObj.Level1.Question[questionCount].Type;
+
+
+
+
+
+
+
+    //console.log(qType +" "+ isCorrect);
+
+    for (var j = 0; j < options; j++) {
+        if (qType === "SINGLE_SELECT") {
+            level1Opt.innerHTML += "<div class='options'><input type='radio' name='answers' id='option" + j + "' class='radio' /><label for='option" + j + "'> " + optionList[j].Text + "</label></div>";
+        } else {
+            level1Opt.innerHTML += "<div class='options'><input type='checkbox' name='answers' id='option" + j + "' class='checkbox'/><label for='option" + j + "'> " + optionList[j].Text + "</label></div>";
         }
+    }
 
-       /* $('input').change(function() {
-            if($(this).is(":checked")) {
-                //var returnVal = "checked";
-                $(this).attr("checked");
-            }
-            alert($("#optionsDisplay input:checked").length);        
-        }); */
+    /* $('input').change(function() {
+         if($(this).is(":checked")) {
+             //var returnVal = "checked";
+             $(this).attr("checked");
+         }
+         alert($("#optionsDisplay input:checked").length);        
+     }); */
+    console.log(qType + " " + options + " " + x);
 
-        return;
-            
+    return;
+
 }
 
-function showQuestions(){
+function showQuestions() {
     document.getElementById("container").style.display = "flex";
     document.getElementById("quizPage").classList.add("fadeIn");
 
@@ -116,14 +123,175 @@ function showQuestions(){
     glowEffect.position.x = 27;
     glowEffect.position.z = 26;
     glowParticles.start(500);
-    setTimeout(function(){key.position.x = 27; key.position.z = 26; }, 2000);
+    setTimeout(function () {
+        key.position.x = 27;
+        key.position.z = 26;
+    }, 2000);
 
-    if(questionCount < displayQuestions){
+    if (questionCount < displayQuestions) {
         questionCount++;
     }
 
     updateQuestions(questionCount);
 }
+
+$("#addQuestion").click(function () {
+    showQuestions();
+});
+
+
+$("#sumbitBtn").click(function () {
+    var checkedOptions = $("#optionsDisplay input:checked").length;
+    var getIndex = $("#optionsDisplay input:checked");
+    var radioButtons = $("#optionsDisplay input");
+
+
+
+    if (checkedOptions > 0) {
+        if (qType === 'SINGLE_SELECT') {
+            for (var i = 0; i < checkedOptions; i++) {
+                if ($("#optionsDisplay input:checked")) {
+                    var selectedIndex = radioButtons.index(getIndex[i]);
+                }
+                var n = [];
+                n.push(myObj.Level1.Question[questionCount].Option[selectedIndex].isCorrect);
+                //console.log(checkedOptions);
+            }
+
+            if (n.includes(1) === true) {
+                document.getElementById("container").style.display = "none";
+                glowParticles.stop();
+                var topParent = selectedBox.parent;
+                var animationToPlay = boxAnimationPairs[topParent.name];
+                if (topParent.parent) {
+                    topParent = topParent.parent;
+                }
+
+                for (var i = 0; i < scene.animationGroups.length; i++) {
+                    if (scene.animationGroups[i].name === animationToPlay) {
+                        scene.animationGroups[i].play();
+                        glowEffect.rotation.y = positionY;
+                        glowEffect.position.x = positionX;
+                        glowEffect.position.z = positionZ;
+                        glowParticles.start(500);
+                        setTimeout(function () {
+                            key.position.x = positionX;
+                            key.position.z = positionZ;
+                        }, 2000);
+                        console.log(animationToPlay + "<>" + scene.animationGroups[i].position);
+
+                    }
+                }
+                console.log("Correct");
+            } else {
+                document.getElementById("container").style.display = "none";
+                var topParent = selectedBox.parent;
+                var animationToPlay = boxAnimationPairs[topParent.name];
+                if (topParent.parent) {
+                    topParent = topParent.parent;
+                }
+                for (var i = 0; i < scene.animationGroups.length; i++) {
+                    if (scene.animationGroups[i].name === animationToPlay) {
+                        scene.animationGroups[i].play();
+                    }
+                }
+                console.log("Wrong 1");
+            }
+
+        } else {
+
+            if (checkedOptions >= 2) {
+                var correctOptions = [];
+                for (var i = 0; i < options; i++) {
+                    correctOptions[i] = myObj.Level1.Question[questionCount].Option[i].isCorrect;
+
+                }
+
+                function getOccurrence(array, value) {
+                    var count = 0;
+                    array.forEach((v) => (v === value && count++));
+                    return count;
+                }
+
+                if (getOccurrence(correctOptions, 1) === $("#optionsDisplay input:checked").length) {
+
+                    for (var i = 0; i < checkedOptions; i++) {
+                        if ($("#optionsDisplay input:checked")) {
+                            var selectedIndex = radioButtons.index(getIndex[i]);
+                        }
+                        var n = [];
+                        n.push(myObj.Level1.Question[questionCount].Option[selectedIndex].isCorrect);
+                        console.log(checkedOptions);
+                    }
+
+                    if (n.includes(1) === true) {
+                        document.getElementById("container").style.display = "none";
+                        glowParticles.stop();
+                        var topParent = selectedBox.parent;
+                        var animationToPlay = boxAnimationPairs[topParent.name];
+                        if (topParent.parent) {
+                            topParent = topParent.parent;
+                        }
+
+                        for (var i = 0; i < scene.animationGroups.length; i++) {
+                            if (scene.animationGroups[i].name === animationToPlay) {
+                                scene.animationGroups[i].play();
+                                glowEffect.rotation.y = positionY;
+                                glowEffect.position.x = positionX;
+                                glowEffect.position.z = positionZ;
+                                glowParticles.start(500);
+                                setTimeout(function () {
+                                    key.position.x = positionX;
+                                    key.position.z = positionZ;
+                                }, 2000);
+                                console.log(animationToPlay + "<>" + scene.animationGroups[i].position);
+
+                            }
+                        }
+                        console.log("Correct");
+                    } else {
+                        document.getElementById("container").style.display = "none";
+                        var topParent = selectedBox.parent;
+                        var animationToPlay = boxAnimationPairs[topParent.name];
+                        if (topParent.parent) {
+                            topParent = topParent.parent;
+                        }
+                        for (var i = 0; i < scene.animationGroups.length; i++) {
+                            if (scene.animationGroups[i].name === animationToPlay) {
+                                scene.animationGroups[i].play();
+                            }
+                        }
+
+                        console.log("Wrong1");
+                    }
+                } else {
+                    document.getElementById("container").style.display = "none";
+                    var topParent = selectedBox.parent;
+                    var animationToPlay = boxAnimationPairs[topParent.name];
+                    if (topParent.parent) {
+                        topParent = topParent.parent;
+                    }
+                    for (var i = 0; i < scene.animationGroups.length; i++) {
+                        if (scene.animationGroups[i].name === animationToPlay) {
+                            scene.animationGroups[i].play();
+                        }
+                    }
+
+                    console.log("Wrong2");
+                }
+
+
+            } else {
+                alert("Please select at least two options!");
+            }
+
+
+        }
+
+    } else {
+        alert("Please select at least one option!");
+    }
+});
 
 
 

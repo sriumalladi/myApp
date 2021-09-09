@@ -61,7 +61,7 @@ var createScene = function () {
     //camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
     // Set camera to look down the hall and show face
 
-    let ar = engine.getAspectRatio(camera);
+    /*let ar = engine.getAspectRatio(camera);
     let pipW = (ar < 1) ? 0.3 : 0.3 * (1/ar);
     let pipH = (ar < 1) ? 0.3 * ar : 0.3;
     let pipX = 1 - pipW;
@@ -74,11 +74,12 @@ var createScene = function () {
     pipCamera.viewport = new BABYLON.Viewport(pipX, pipY, pipW, pipH);
 
     pipCamera.parent = camera;
+    scene.activeCameras.push(pipCamera);*/
 
      
 
     scene.activeCameras.push(camera);
-    scene.activeCameras.push(pipCamera);
+    
 
 
 
@@ -117,7 +118,7 @@ var createScene = function () {
     light2.intensity = 0.4;
 
     light3 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
-    light3.intensity = 0.2;
+    light3.intensity = 0.4;
     light3.specular = BABYLON.Color3.Black();
     light3.position = new BABYLON.Vector3(0, 10, 40);
 

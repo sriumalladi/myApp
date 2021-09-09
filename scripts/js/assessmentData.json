@@ -26,7 +26,7 @@
 				}
 			},
 			{
-				"Text": "What percentage of basic salary is gratuity?",
+				"Text": "What percentage of basic salary is gratuity?11",
 				"Type": "MULTI_SELECT",
 				"Option": [
 					{
@@ -40,6 +40,10 @@
 					{
 						"Text": "5.2%",
 						"isCorrect": 0
+					},
+					{
+						"Text": "100%",
+						"isCorrect": 1
 					}
 				],
 				"Feedback": {

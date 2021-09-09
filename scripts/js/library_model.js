@@ -1,6 +1,6 @@
 var library;
 var k = 1;
-BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.gltf", scene, function (libMesh) {
+BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, function (libMesh) {
     library = libMesh[0];
     library.position = new BABYLON.Vector3(0.72, -2.82, -10);
     library.rotation = new BABYLON.Vector3(0, -1.55, 0);

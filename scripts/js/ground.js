@@ -6,8 +6,8 @@
     }, scene);
 var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
 groundMaterial.diffuseTexture = new BABYLON.Texture("../../3d/textures/floor.jpg", scene);
-groundMaterial.diffuseTexture.uScale = 10;
-groundMaterial.diffuseTexture.vScale = 10;
+groundMaterial.diffuseTexture.uScale = 8;
+groundMaterial.diffuseTexture.vScale = 8;
 groundMaterial.specularColor = new BABYLON.Color3(.1, .1, .1);
 ground.material = groundMaterial;
 ground.position.y = -2.7; // -2.8
