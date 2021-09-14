@@ -166,22 +166,27 @@ $("#sumbitBtn").click(function () {
                 if (topParent.parent) {
                     topParent = topParent.parent;
                 }
-
-                for (var i = 0; i < scene.animationGroups.length; i++) {
-                    if (scene.animationGroups[i].name === animationToPlay) {
-                        scene.animationGroups[i].play();
-                        glowEffect.rotation.y = positionY;
-                        glowEffect.position.x = positionX;
-                        glowEffect.position.z = positionZ;
-                        glowParticles.start(500);
-                        setTimeout(function () {
-                            key.position.x = positionX;
-                            key.position.z = positionZ;
-                        }, 2000);
-                        console.log(animationToPlay + "<>" + scene.animationGroups[i].position);
-
+                open.start(true, 1.0, open.from, open.to, false);
+                setTimeout(function () {
+                    for (var i = 0; i < scene.animationGroups.length; i++) {
+                        if (scene.animationGroups[i].name === animationToPlay) {
+                            scene.animationGroups[i].play();
+                        }
                     }
-                }
+
+                }, 1000);
+                glowEffect.rotation.y = positionY;
+                glowEffect.position.x = positionX;
+                glowEffect.position.z = positionZ;
+                glowParticles.start(2000);
+                setTimeout(function () {
+                    open.stop();
+                    key.position.x = positionX;
+                    key.position.z = positionZ;
+                    key.rotation.y = positionY;
+                }, 3500);
+
+
                 console.log("Correct");
             } else {
                 document.getElementById("container").style.display = "none";
@@ -190,11 +195,18 @@ $("#sumbitBtn").click(function () {
                 if (topParent.parent) {
                     topParent = topParent.parent;
                 }
-                for (var i = 0; i < scene.animationGroups.length; i++) {
-                    if (scene.animationGroups[i].name === animationToPlay) {
-                        scene.animationGroups[i].play();
+                open.start(true, 1.0, open.from, open.to, false);
+                setTimeout(function () {
+                    for (var i = 0; i < scene.animationGroups.length; i++) {
+                        if (scene.animationGroups[i].name === animationToPlay) {
+                            scene.animationGroups[i].play();
+                        }
                     }
-                }
+
+                }, 1000);
+                setTimeout(function () {
+                    open.stop();
+                }, 3000);
                 console.log("Wrong 1");
             }
 
@@ -233,21 +245,25 @@ $("#sumbitBtn").click(function () {
                             topParent = topParent.parent;
                         }
 
-                        for (var i = 0; i < scene.animationGroups.length; i++) {
-                            if (scene.animationGroups[i].name === animationToPlay) {
-                                scene.animationGroups[i].play();
-                                glowEffect.rotation.y = positionY;
-                                glowEffect.position.x = positionX;
-                                glowEffect.position.z = positionZ;
-                                glowParticles.start(500);
-                                setTimeout(function () {
-                                    key.position.x = positionX;
-                                    key.position.z = positionZ;
-                                }, 2000);
-                                console.log(animationToPlay + "<>" + scene.animationGroups[i].position);
-
+                        open.start(true, 1.0, open.from, open.to, false);
+                        setTimeout(function () {
+                            for (var i = 0; i < scene.animationGroups.length; i++) {
+                                if (scene.animationGroups[i].name === animationToPlay) {
+                                    scene.animationGroups[i].play();
+                                }
                             }
-                        }
+
+                        }, 1000);
+                        glowEffect.rotation.y = positionY;
+                        glowEffect.position.x = positionX;
+                        glowEffect.position.z = positionZ;
+                        glowParticles.start(2000);
+                        setTimeout(function () {
+                            open.stop();
+                            key.position.x = positionX;
+                            key.position.z = positionZ;
+                            key.rotation.y = positionY;
+                        }, 3500);
                         console.log("Correct");
                     } else {
                         document.getElementById("container").style.display = "none";
@@ -256,13 +272,19 @@ $("#sumbitBtn").click(function () {
                         if (topParent.parent) {
                             topParent = topParent.parent;
                         }
-                        for (var i = 0; i < scene.animationGroups.length; i++) {
-                            if (scene.animationGroups[i].name === animationToPlay) {
-                                scene.animationGroups[i].play();
+                        open.start(true, 1.0, open.from, open.to, false);
+                        setTimeout(function () {
+                            for (var i = 0; i < scene.animationGroups.length; i++) {
+                                if (scene.animationGroups[i].name === animationToPlay) {
+                                    scene.animationGroups[i].play();
+                                }
                             }
-                        }
 
-                        console.log("Wrong1");
+                        }, 1000);
+                        setTimeout(function () {
+                            open.stop();
+                        }, 3000);
+                        console.log("Wrong2");
                     }
                 } else {
                     document.getElementById("container").style.display = "none";
@@ -271,21 +293,46 @@ $("#sumbitBtn").click(function () {
                     if (topParent.parent) {
                         topParent = topParent.parent;
                     }
-                    for (var i = 0; i < scene.animationGroups.length; i++) {
-                        if (scene.animationGroups[i].name === animationToPlay) {
-                            scene.animationGroups[i].play();
+                    open.start(true, 1.0, open.from, open.to, false);
+                    setTimeout(function () {
+                        for (var i = 0; i < scene.animationGroups.length; i++) {
+                            if (scene.animationGroups[i].name === animationToPlay) {
+                                scene.animationGroups[i].play();
+                            }
                         }
-                    }
 
-                    console.log("Wrong2");
+                    }, 1000);
+
+                    setTimeout(function () {
+                        open.stop();
+                    }, 3000);
+
+                    console.log("Wrong3");
                 }
 
 
             } else {
-                alert("Please select at least two options!");
+                var topParent = selectedBox.parent;
+                    var animationToPlay = boxAnimationPairs[topParent.name];
+                    if (topParent.parent) {
+                        topParent = topParent.parent;
+                    }
+                    open.start(true, 1.0, open.from, open.to, false);
+                    setTimeout(function () {
+                        for (var i = 0; i < scene.animationGroups.length; i++) {
+                            if (scene.animationGroups[i].name === animationToPlay) {
+                                scene.animationGroups[i].play();
+                            }
+                        }
+
+                    }, 1000);
+
+                    setTimeout(function () {
+                        open.stop();
+                    }, 3000);
+
+                console.log("Wrong4");
             }
-
-
         }
 
     } else {

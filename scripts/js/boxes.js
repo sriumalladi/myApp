@@ -20,7 +20,7 @@ boxPlaces.push([1, -Math.PI / 1.8, 28, 30 ]);
 boxPlaces.push([2,  Math.PI / 2, 8, -2 ]); //2
 boxPlaces.push([3, -Math.PI / 2, -24, 35 ]);
 boxPlaces.push([1, 15 * Math.PI / 15, -10, -18 ]);
-boxPlaces.push([2, 15 * Math.PI / 15, -22, -17 ]); //3
+boxPlaces.push([2, 15 * Math.PI / 15, -22, -16 ]); //3
 boxPlaces.push([3, 15 * Math.PI / 16, -34, 20 ]);
 boxPlaces.push([1, -Math.PI / 12, -10, -18 ]);
 boxPlaces.push([2, 0, -19, 77 ]); //4
@@ -32,11 +32,11 @@ boxPlaces.push([3, -Math.PI / 20, 3, 98]);
 
 //Key and loader
 BABYLON.SceneLoader.ImportMesh("", "../../3d/key/", "key.glb", scene, function (meshes) {
-    //scene.createDefaultEnvironment();       
+    scene.createDefaultEnvironment(); // Render view   
     key = meshes[0];
     key.setParent(null);
-    key.position.y = 2;
-    key.position.x = -100;
+    key.position = new BABYLON.Vector3(0, 2, 500);
+    key.rotation = new BABYLON.Vector3(1.6, 0, 0);
 });
 
 
@@ -212,7 +212,7 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
         selectedBox = lockedBox7;
         positionX = -22;
         positionY = 1.6;
-        positionZ = -17;
+        positionZ = -16;
         document.getElementById("container").style.display = "flex";
         document.getElementById("quizPage").classList.add("fadeIn");
         // Quiz Page
@@ -272,10 +272,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/boxes/", "box3.glb", scene, functio
     }));
 });
 
-/*Key and loader 
 
-
-BABYLON.SceneLoader.Append("../../3d/key/", "key.glb", scene, function (meshes) {});*/
+/*BABYLON.SceneLoader.Append("../../3d/key/", "key.glb", scene, function (meshes) {});*/
 
 
 

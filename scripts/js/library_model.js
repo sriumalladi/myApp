@@ -13,20 +13,20 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
     wallCollider.checkCollisions = true;
     wallCollider.isVisible = false;
 
-    var wall1 = scene.getMeshByName('w1');
-    var wall2 = scene.getMeshByName('w2');
-    var wall3 = scene.getMeshByName('w3');
-    var wall4 = scene.getMeshByName('w4');
-    var wall5 = scene.getMeshByName('w5');
-    var wall6 = scene.getMeshByName('w6');
-    var wall7 = scene.getMeshByName('w7');
-    var wall8 = scene.getMeshByName('w8');
-    var wall9 = scene.getMeshByName('w9');
-    var wall10 = scene.getMeshByName('w10');
-    var wall11 = scene.getMeshByName('w11');
-    var wall12 = scene.getMeshByName('w12');
-    var wall13 = scene.getMeshByName('w13');
-    var wall14 = scene.getMeshByName('w14');
+    var wall1 = scene.getMeshByName('wal1');
+    var wall2 = scene.getMeshByName('wal2');
+    var wall3 = scene.getMeshByName('wal3');
+    var wall4 = scene.getMeshByName('wal4');
+    var wall5 = scene.getMeshByName('wal5');
+    var wall6 = scene.getMeshByName('wal6');
+    var wall7 = scene.getMeshByName('wal7');
+    var wall8 = scene.getMeshByName('wal8');
+    var wall9 = scene.getMeshByName('wal9');
+    var wall10 = scene.getMeshByName('wal10');
+    var wall11 = scene.getMeshByName('wal11');
+    var wall12 = scene.getMeshByName('wal12');
+    var wall13 = scene.getMeshByName('wal13');
+    var wall14 = scene.getMeshByName('wal14');
 
     wall1.checkCollisions = true;
     wall2.checkCollisions = true;
