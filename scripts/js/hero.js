@@ -4,9 +4,11 @@ var animating = false;
 var heroCollider;
 var camCollider;
 var open;
+var heroTarget;
 
+heroTarget = BABYLON.Mesh.CreateBox("boxHeroTarget", 2, scene); 
 camCollider = BABYLON.Mesh.CreateSphere("camMov", 10, 0.5, scene);
-heroCollider = BABYLON.Mesh.CreateBox("boxHero", 3, scene); 
+heroCollider = BABYLON.Mesh.CreateBox("boxHero", 3, scene);
 BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function (newMeshes,
     particleSystems, skeletons, animationGroups) {
     hero = newMeshes[0];
@@ -17,16 +19,24 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function
     var heroSpeedBackwards = 0.05;
     var heroRotationSpeed = 0.03;
     heroCollider.checkCollisions = true;
+    heroCollider.updateFacetData();
+    heroCollider.updateFacetData();
     heroCollider.isVisible = false;
+    heroTarget.isVisible = false;
     camCollider.isVisible = true;
-    //hero.ellipsoid = new BABYLON.Vector3(5, 1, 5);
+    hero.ellipsoid = new BABYLON.Vector3(5, 1, 5);
     camCollider.checkCollisions = true;   
     heroCollider.position = new BABYLON.Vector3(0, 0, 0);
     camCollider.position = new BABYLON.Vector3(0, 0, 0);
+    heroTarget.position = new BABYLON.Vector3(0, 3, 0);
     heroCollider.material = new BABYLON.StandardMaterial("light", scene);
     heroCollider.material.emissiveColor = new BABYLON.Color3(0, 1, 0);
-  
-    heroCollider.physicsImpostor = new BABYLON.PhysicsImpostor(heroCollider, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0.1 }, scene);
+
+    heroCollider.physicsImpostor = new BABYLON.PhysicsImpostor(heroCollider, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0.01 }, scene);
+
+    
+
+
     camCollider.parent = camera;
     
 
@@ -50,6 +60,13 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function
     const back = scene.getAnimationGroupByName('03_walk_backwards');
     open = scene.getAnimationGroupByName('10_open_chest');
 
+    function vecToLocal(vector, mesh){
+        var m = mesh.getWorldMatrix();
+        var v = BABYLON.Vector3.TransformCoordinates(vector, m);
+		return v;		 
+    }
+
+
     // Key Functions
     scene.onBeforeRenderObservable.add(() => {
         var keydown = false;
@@ -65,12 +82,22 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function
 
         if (inputMap["a"] || inputMap["ArrowLeft"]) {
             heroCollider.rotate(BABYLON.Vector3.Up(), -heroRotationSpeed);
+            heroTarget.rotate(BABYLON.Vector3.Up(), -heroRotationSpeed);
             keydown = true;
+           /* var facePosition = heroCollider.getFacetPosition(1);
+            var z = facePosition.x; 
+            var x = BABYLON.Tools.ToDegrees(z);
+            console.log(Math.round(x));*/
         }
 
         if (inputMap["d"] || inputMap["ArrowRight"]) {
             heroCollider.rotate(BABYLON.Vector3.Up(), heroRotationSpeed);
+            heroTarget.rotate(BABYLON.Vector3.Up(), heroRotationSpeed);
             keydown = true;
+           /* var facePosition = heroCollider.getFacetPosition(1);
+            var z = facePosition.x; 
+            var x = BABYLON.Tools.ToDegrees(z);
+            console.log(Math.round(x));*/
         }
 
 
@@ -78,7 +105,7 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function
         if (keydown) {
             if (!animating) {
                 animating = true;
-                if (inputMap["s"]) {
+                if (inputMap["s"] ||  inputMap["ArrowDown"]) {
                     //Walk backwards
                     back.start(true, 1.0, back.from, back.to, false);
                 }
@@ -105,18 +132,25 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/hero/", "hero.glb", scene, function
 
     });
 
-  
+   
+
     
-    hero.parent = heroCollider;
-    camera.parent = heroCollider;
+    
+    hero.setParent(heroCollider);
+    heroTarget.setParent(heroCollider);
+    camera.lockedTarget = heroTarget;
+
+    
+
+    //console.log(camera);
 
     // Shadows 
 
-    var shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
+    var shadowGenerator = new BABYLON.ShadowGenerator(1024, light2);
     shadowGenerator.addShadowCaster(hero);
     shadowGenerator.useExponentialShadowMap = true;
 
-    var shadowGenerator2 = new BABYLON.ShadowGenerator(1024, light2);
+    var shadowGenerator2 = new BABYLON.ShadowGenerator(1024, light3);
     shadowGenerator2.addShadowCaster(hero);
     shadowGenerator2.usePoissonSampling = true;
 });

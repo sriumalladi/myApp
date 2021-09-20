@@ -186,7 +186,6 @@ $("#sumbitBtn").click(function () {
                     key.rotation.y = positionY;
                 }, 3500);
 
-
                 console.log("Correct");
             } else {
                 document.getElementById("container").style.display = "none";
@@ -312,24 +311,25 @@ $("#sumbitBtn").click(function () {
 
 
             } else {
+                document.getElementById("container").style.display = "none";
                 var topParent = selectedBox.parent;
-                    var animationToPlay = boxAnimationPairs[topParent.name];
-                    if (topParent.parent) {
-                        topParent = topParent.parent;
-                    }
-                    open.start(true, 1.0, open.from, open.to, false);
-                    setTimeout(function () {
-                        for (var i = 0; i < scene.animationGroups.length; i++) {
-                            if (scene.animationGroups[i].name === animationToPlay) {
-                                scene.animationGroups[i].play();
-                            }
+                var animationToPlay = boxAnimationPairs[topParent.name];
+                if (topParent.parent) {
+                    topParent = topParent.parent;
+                }
+                open.start(true, 1.0, open.from, open.to, false);
+                setTimeout(function () {
+                    for (var i = 0; i < scene.animationGroups.length; i++) {
+                        if (scene.animationGroups[i].name === animationToPlay) {
+                            scene.animationGroups[i].play();
                         }
+                    }
 
-                    }, 1000);
+                }, 1000);
 
-                    setTimeout(function () {
-                        open.stop();
-                    }, 3000);
+                setTimeout(function () {
+                    open.stop();
+                }, 3000);
 
                 console.log("Wrong4");
             }

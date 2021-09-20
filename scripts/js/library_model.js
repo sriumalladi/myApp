@@ -42,6 +42,24 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
     wall12.checkCollisions = true;
     wall13.checkCollisions = true;
     wall14.checkCollisions = true;
+
+
+    function showAll(){
+        wall1.isVisible = true;
+        wall2.isVisible = true; 
+        wall3.isVisible = true;
+        wall4.isVisible = true;
+        wall5.isVisible = true; 
+        wall6.isVisible = true;
+        wall7.isVisible = true;
+        wall8.isVisible = true; 
+        wall9.isVisible = true;
+        wall10.isVisible = true;
+        wall11.isVisible = true; 
+        wall12.isVisible = true;
+        wall13.isVisible = true; 
+        wall14.isVisible = true;
+    }
       
     camCollider.actionManager = new BABYLON.ActionManager(scene);
     camCollider.actionManager.registerAction(new BABYLON.ExecuteCodeAction({
@@ -49,21 +67,9 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:wallCollider,
     }, function () {
         if(k == 1){
-            wall1.isVisible = true;
-            wall2.isVisible = true; 
-            wall3.isVisible = true;
-            wall4.isVisible = true;
-            wall5.isVisible = true; 
-            wall6.isVisible = true;
-            wall7.isVisible = true;
-            wall8.isVisible = true; 
-            wall9.isVisible = true;
-            wall10.isVisible = true;
-            wall11.isVisible = true; 
-            wall12.isVisible = true;
-            wall13.isVisible = true; 
-            wall14.isVisible = true;
+            showAll();
             k = 0; 
+            console.log("Show All");
         }
     }));
 
@@ -84,10 +90,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:camCollider
     }, function () {    
-            if(wall1.isVisible === false){
-                wall1.isVisible = true;
-                wall2.isVisible = true; 
-                wall14.isVisible = true;
+            if(wall1.isVisible == false){
+                showAll();
                 k=0; 
             }else{
                 wall1.isVisible = false;
@@ -102,10 +106,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:camCollider
     }, function () {    
-        if(wall2.isVisible === false){
-            wall1.isVisible = true;
-            wall2.isVisible = true; 
-            wall3.isVisible = true; 
+        if(wall2.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall1.isVisible = false;
@@ -121,10 +123,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:camCollider
     }, function () {    
-        if(wall3.isVisible === false){
-            wall2.isVisible = true;
-            wall3.isVisible = true; 
-            wall4.isVisible = true; 
+        if(wall3.isVisible == false){
+            showAll();
         }else{
             wall2.isVisible = false;
             wall3.isVisible = false; 
@@ -141,10 +141,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall4.isVisible === false){
-            wall3.isVisible = true;
-            wall4.isVisible = true; 
-            wall5.isVisible = true; 
+        if(wall4.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall3.isVisible = false;
@@ -161,10 +159,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall5.isVisible === false){
-            wall4.isVisible = true;
-            wall5.isVisible = true; 
-            wall6.isVisible = true; 
+        if(wall5.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall4.isVisible = false;
@@ -183,10 +179,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall6.isVisible === false){
-            wall5.isVisible = true;
-            wall6.isVisible = true; 
-            wall7.isVisible = true; 
+        if(wall6.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall5.isVisible = false;
@@ -203,10 +197,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall7.isVisible === false){
-            wall6.isVisible = true;
-            wall7.isVisible = true; 
-            wall8.isVisible = true;
+        if(wall7.isVisible == false){
+            showAll();
             k=0; 
         }else{
             wall6.isVisible = false;
@@ -222,10 +214,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall8.isVisible === false){
-            wall7.isVisible = true;
-            wall8.isVisible = true; 
-            wall9.isVisible = true;
+        if(wall8.isVisible == false){
+            showAll();
             k=0; 
         }else{
             wall7.isVisible = false;
@@ -242,10 +232,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall9.isVisible === false){
-            wall8.isVisible = true;
-            wall9.isVisible = true; 
-            wall10.isVisible = true; 
+        if(wall9.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall8.isVisible = false;
@@ -262,10 +250,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall10.isVisible === false){
-            wall9.isVisible = true;
-            wall10.isVisible = true; 
-            wall11.isVisible = true; 
+        if(wall10.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall9.isVisible = false;
@@ -283,10 +269,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall11.isVisible === false){
-            wall10.isVisible = true;
-            wall11.isVisible = true; 
-            wall12.isVisible = true;
+        if(wall11.isVisible == false){
+            showAll();
             k=0; 
         }else{
             wall10.isVisible = false;
@@ -302,10 +286,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger,
         parameter:camCollider
     }, function () {           
-        if(wall12.isVisible === false){
-            wall11.isVisible = true;
-            wall12.isVisible = true; 
-            wall13.isVisible = true; 
+        if(wall12.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall11.isVisible = false;
@@ -322,10 +304,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
         
-        if(wall13.isVisible === false){
-            wall12.isVisible = true;
-            wall13.isVisible = true; 
-            wall14.isVisible = true; 
+        if(wall13.isVisible == false){
+            showAll();
             k=0;
         }else{
             wall12.isVisible = false;
@@ -342,10 +322,8 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
         parameter:camCollider
     }, function () {    
        
-        if(wall14.isVisible === false){
-            wall13.isVisible = true;
-            wall14.isVisible = true; 
-            wall1.isVisible = true;
+        if(wall14.isVisible == false){
+            showAll();
             k=0; 
         }else{
             wall13.isVisible = false;
@@ -363,6 +341,16 @@ BABYLON.SceneLoader.ImportMesh("", "../../3d/library/", "library.glb", scene, fu
     }, function () {
         
     }));*/
+    
+    
+    var bigTables1 = scene.getMeshByName('tbl1_primitive5');
+    bigTables1.receiveShadows = true;
+
+    var bigTables = scene.getMeshByName('tbl1_primitive1');
+
+    var shadowGenerator3 = new BABYLON.ShadowGenerator(1024, light3);
+    shadowGenerator3.addShadowCaster(bigTables);
+    shadowGenerator3.usePoissonSampling = true;
 
 
 });
